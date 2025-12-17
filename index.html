@@ -129,17 +129,18 @@
             text-shadow: 0 0 15px rgba(16,185,129,0.4);
         }
         
-        /* Updated Benefits List - No bullets, only checkmarks */
+        /* Updated Benefits List - Better aligned checkmarks */
         .benefits ul {
             max-width: 900px;
             margin: 0 auto;
             font-size: 1.3rem;
-            list-style: none; /* Removes default bullets */
+            list-style: none; /* No default bullets */
         }
         .benefits li {
             margin: 30px 0;
-            padding-left: 60px; /* Space for the checkmark */
+            padding-left: 70px; /* More space for centered checkmark */
             position: relative;
+            min-height: 50px; /* Ensures consistent height for alignment */
         }
         .benefits li::before {
             content: "✓";
@@ -147,8 +148,10 @@
             font-weight: bold;
             position: absolute;
             left: 0;
-            font-size: 2rem;
+            font-size: 2.5rem; /* Slightly larger for impact */
             text-shadow: 0 0 10px rgba(16,185,129,0.5);
+            top: 50%;
+            transform: translateY(-50%); /* Perfect vertical centering */
         }
         
         footer {
@@ -164,7 +167,8 @@
             .headline { font-size: 1.3rem; }
             h2 { font-size: 2.5rem; }
             .logo { width: 150px; }
-            .benefits li { padding-left: 50px; }
+            .benefits li { padding-left: 60px; }
+            .benefits li::before { font-size: 2.2rem; }
         }
     </style>
 </head>

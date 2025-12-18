@@ -3,172 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TimeHunter AI | Reclaim Your Time with AI Automations</title>
-    <meta name="description" content="TimeHunter AI delivers custom AI automations for executives — intelligent calendar management, booking systems, cold outreach, and more. Save 10+ hours per week.">
+    <title>TimeHunter AI | Never Miss Another Client Booking</title>
+    <meta name="description" content="Get a fully automated booking system that works 24/7 with instant confirmations, smart reminders, and optional AI voice assistant.">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Feather Icons CDN) -->
+    <script src="https://unpkg.com/feather-icons"></script>
     
     <style>
         :root {
-            --primary-green: #10b981;      /* Neon green from logo */
-            --primary-glow: #34d399;
-            --dark-bg: #0f172a;           /* Deep slate black */
-            --dark-card: #1e293b;
-            --text-light: #e2e8f0;
-            --text-muted: #94a3b8;
-            --accent: #10b981;
+            --primary: #007bff;         /* Square-like blue for accents/buttons */
+            --primary-dark: #0056b3;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --dark-text: #212529;
+            --gray-text: #6c757d;
+            --border: #dee2e6;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text-light);
-            background: #020617;
+            color: var(--dark-text);
+            background: var(--white);
         }
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         /* Header / Hero */
         header {
-            background: linear-gradient(to bottom, #0f172a, #020617);
-            padding: 120px 0 100px;
+            background: var(--white);
+            padding: 100px 0 80px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at center, rgba(16,185,129,0.15) 0%, transparent 70%);
-            pointer-events: none;
+            border-bottom: 1px solid var(--border);
         }
         .logo {
-            width: 180px;
+            width: 160px;
             margin-bottom: 30px;
-            filter: drop-shadow(0 0 20px rgba(16,185,129,0.6));
         }
         h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: 3.2rem;
             margin-bottom: 20px;
-            color: white;
-            text-shadow: 0 0 20px rgba(16,185,129,0.4);
+            color: var(--dark-text);
         }
-        .headline {
-            font-size: 1.5rem;
+        .subheadline {
+            font-size: 1.4rem;
             max-width: 800px;
             margin: 0 auto 50px;
-            opacity: 0.9;
+            color: var(--gray-text);
         }
         .cta-button {
             display: inline-block;
-            background: var(--primary-green);
+            background: var(--primary);
             color: white;
             font-size: 1.3rem;
             font-weight: 600;
-            padding: 20px 50px;
-            border-radius: 12px;
+            padding: 18px 40px;
+            border-radius: 8px;
             text-decoration: none;
-            box-shadow: 0 0 30px rgba(16,185,129,0.4);
-            transition: all 0.3s;
+            transition: background 0.3s;
         }
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 50px rgba(16,185,129,0.6);
-            background: var(--primary-glow);
+            background: var(--primary-dark);
         }
         
         /* Sections */
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
-        .about, .benefits { background: #020617; }
-        .services { background: #0f172a; }
-        .cta-final { background: linear-gradient(to bottom, #0f172a, #020617); text-align: center; }
+        .benefits { background: var(--light-bg); }
+        .pricing { text-align: center; background: var(--white); }
+        .credibility { background: var(--light-bg); }
+        .cta-final { text-align: center; background: var(--white); padding: 100px 0; }
         
         h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 60px;
-            color: white;
-            text-shadow: 0 0 15px rgba(16,185,129,0.3);
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-        .service-card {
-            background: var(--dark-card);
-            padding: 50px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin: 25px 0;
-            color: var(--primary-glow);
-        }
-        .price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            margin: 25px 0;
-            text-shadow: 0 0 15px rgba(16,185,129,0.4);
+            margin-bottom: 50px;
+            color: var(--dark-text);
         }
         
-        /* Updated Benefits List - Better aligned checkmarks */
-        .benefits ul {
-            max-width: 900px;
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
             margin: 0 auto;
-            font-size: 1.3rem;
-            list-style: none; /* No default bullets */
+            list-style: none;
         }
-        .benefits li {
-            margin: 30px 0;
-            padding-left: 70px; /* More space for centered checkmark */
-            position: relative;
-            min-height: 50px; /* Ensures consistent height for alignment */
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            font-size: 1.2rem;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
-        .benefits li::before {
-            content: "✓";
-            color: var(--primary-green);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            font-size: 2.5rem; /* Slightly larger for impact */
-            text-shadow: 0 0 10px rgba(16,185,129,0.5);
-            top: 50%;
-            transform: translateY(-50%); /* Perfect vertical centering */
+        .benefits-list i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .pricing p {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 40px;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        .testimonial cite {
+            display: block;
+            margin-top: 20px;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .trusted {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            color: var(--gray-text);
         }
         
         footer {
-            background: black;
-            color: var(--text-muted);
+            background: #f1f3f5;
+            color: var(--gray-text);
             text-align: center;
-            padding: 50px 0;
-            font-size: 1rem;
+            padding: 40px 0;
+            font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .headline { font-size: 1.3rem; }
-            h2 { font-size: 2.5rem; }
-            .logo { width: 150px; }
-            .benefits li { padding-left: 60px; }
-            .benefits li::before { font-size: 2.2rem; }
+            h1 { font-size: 2.6rem; }
+            .subheadline { font-size: 1.2rem; }
+            h2 { font-size: 2.2rem; }
+            .benefits-list li { flex-direction: column; text-align: center; }
+            .benefits-list i { margin-bottom: 15px; }
         }
     </style>
 </head>
@@ -178,8 +173,8 @@
         <div class="container">
             <img src="https://iili.io/fcAyxwl.png" alt="TimeHunter AI Logo" class="logo">
             
-            <h1>TimeHunter AI</h1>
-            <p class="headline">Reclaim 10+ hours every week with custom AI automations built for high-performing executives and entrepreneurs.</p>
+            <h1>Never Miss Another Client Booking</h1>
+            <p class="subheadline">Get a fully automated booking system that works 24/7 — with instant confirmations, smart reminders, and an optional AI voice assistant that answers calls and schedules appointments for you.</p>
             
             <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
                 Book Free Automation Audit (20 min)
@@ -187,59 +182,50 @@
         </div>
     </header>
 
-    <section class="about">
+    <section class="benefits">
         <div class="container">
-            <h2>About TimeHunter AI</h2>
-            <p style="max-width: 800px; margin: 0 auto 40px; font-size: 1.3rem; text-align: center;">
-                We engineer bespoke AI solutions that eliminate time-draining tasks, allowing you to focus on high-impact decisions.
-            </p>
-            <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; text-align: center; color: var(--text-muted);">
-                Intelligent calendar optimization · Automated client booking & qualification · AI-driven outreach sequences · Custom workflow integrations
-            </p>
+            <h2>Your Automated Booking System Includes</h2>
+            <ul class="benefits-list">
+                <li><i data-feather="calendar"></i> Professional, branded booking page your clients can use anytime</li>
+                <li><i data-feather="mail"></i> Automatic confirmations and reminders (email + SMS) to reduce no-shows</li>
+                <li><i data-feather="shield"></i> Two-way calendar sync so you're never double-booked</li>
+                <li><i data-feather="phone"></i> Optional AI voice assistant that handles inbound calls, answers questions, and books appointments in real-time</li>
+                <li><i data-feather="check-circle"></i> One-time setup — no ongoing software fees from us</li>
+            </ul>
         </div>
     </section>
 
-    <section class="services">
+    <section class="pricing">
         <div class="container">
-            <h2>Core Solutions</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Calendar AI Automation</h3>
-                    <p>Intelligent scheduling, priority blocking, conflict resolution, and automated rescheduling.</p>
-                    <div class="price">From $2,500</div>
+            <p>Investments from $2,500–$5,000 depending on scope<br><small>One-time setup fee</small></p>
+            <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
+                Book Free Automation Audit
+            </a>
+        </div>
+    </section>
+
+    <section class="credibility">
+        <div class="container">
+            <p class="trusted">Trusted by busy executives, consultants, and entrepreneurs worldwide</p>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    "TimeHunter AI transformed my scheduling. I no longer miss bookings and the AI voice assistant handles calls seamlessly — saved me 15 hours a month!"
+                    <cite>— Dr. James R., Management Consultant</cite>
                 </div>
-                <div class="service-card">
-                    <h3>Booking & Intake Systems</h3>
-                    <p>AI-qualified leads, seamless onboarding, and personalized client journeys.</p>
-                    <div class="price">From $3,000</div>
-                </div>
-                <div class="service-card">
-                    <h3>Cold Outreach AI</h3>
-                    <p>Personalized multi-channel sequences, lead research, and autonomous follow-ups.</p>
-                    <div class="price">From $4,000</div>
+                <div class="testimonial">
+                    "The automated reminders cut my no-shows by 80%. Professional setup and worth every penny for the time it frees up."
+                    <cite>— Sarah L., Executive Coach</cite>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="benefits">
-        <div class="container">
-            <h2>Why Executives Choose Us</h2>
-            <ul>
-                <li>Average 10–20 hours reclaimed per week</li>
-                <li>Fully custom solutions — no cookie-cutter tools</li>
-                <li>Exclusive clientele: We only partner with serious high performers</li>
-                <li>Rapid ROI — most clients recover investment in month one</li>
-                <li>White-glove onboarding and dedicated support</li>
-            </ul>
-        </div>
-    </section>
-
     <section class="cta-final">
         <div class="container">
-            <h2>Ready to Hunt Down Wasted Time?</h2>
-            <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 50px; opacity: 0.9;">
-                Schedule a free 20-minute audit. We'll analyze your current workflow and reveal exactly how much time AI can save you.
+            <h2>Ready for 24/7 Automated Bookings?</h2>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto 40px; color: var(--gray-text);">
+                Book a free 20-minute audit call to see exactly how this system will work for your business.
             </p>
             <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
                 Schedule Your Free Audit Now
@@ -250,9 +236,13 @@
     <footer>
         <div class="container">
             &copy; 2025 TimeHunter AI. All rights reserved.<br>
-            <a href="mailto:hello@timehunter.ai" style="color: var(--text-muted); text-decoration: underline;">hello@timehunter.ai</a>
+            <a href="mailto:hello@timehunter.ai" style="color: var(--gray-text); text-decoration: underline;">hello@timehunter.ai</a>
         </div>
     </footer>
+
+    <script>
+        feather.replace();
+    </script>
 
 </body>
 </html>

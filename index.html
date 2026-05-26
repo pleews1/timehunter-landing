@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TimeHunter AI | Never Miss Another Client Booking</title>
-    <meta name="description" content="Automated booking system with AI voice assistant, reminders, and sync. Reduce no-shows by up to 35% and boost bookings.">
+    <title>TimeHunter AI | Stop Losing Revenue From Missed Bookings</title>
+    <meta name="description" content="Professional automated booking system with AI voice assistant. Reduce no-shows, eliminate manual scheduling, and let clients book themselves 24/7.">
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
     
     <style>
         :root {
-            --primary: #10b981;         /* Green to match your logo */
+            --primary: #10b981;
             --primary-dark: #059669;
             --light-bg: #f9fafb;
             --white: #ffffff;
             --dark-text: #111827;
             --gray-text: #4b5563;
-            --border: #e5e7eb;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,22 +34,21 @@
         
         header {
             background: var(--white);
-            padding: 80px 0 60px;
+            padding: 100px 0 80px;
             text-align: center;
         }
         .logo {
-            width: 200px;
+            width: 180px;
             margin-bottom: 40px;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
         }
         h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 24px;
             color: var(--dark-text);
         }
         .subheadline {
-            font-size: 1.5rem;
-            max-width: 900px;
+            font-size: 1.45rem;
+            max-width: 800px;
             margin: 0 auto 50px;
             color: var(--gray-text);
         }
@@ -61,9 +56,9 @@
             display: inline-block;
             background: var(--primary);
             color: white;
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 600;
-            padding: 20px 50px;
+            padding: 18px 48px;
             border-radius: 12px;
             text-decoration: none;
             box-shadow: 0 10px 30px rgba(16,185,129,0.3);
@@ -71,116 +66,71 @@
         }
         .cta-button:hover {
             background: var(--primary-dark);
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
-        
+
         section {
             padding: 100px 0;
         }
-        .stats { background: var(--light-bg); text-align: center; }
-        .benefits { background: var(--white); }
-        .pricing { background: var(--light-bg); text-align: center; }
-        .credibility { background: var(--white); }
-        .cta-final { background: var(--light-bg); text-align: center; }
-        
         h2 {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             text-align: center;
             margin-bottom: 60px;
-            color: var(--dark-text);
         }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto 60px;
-        }
-        .stat-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-        .stat-text {
-            font-size: 1.2rem;
-            color: var(--gray-text);
-        }
-        
+
         .benefits-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             max-width: 1100px;
             margin: 0 auto;
         }
         .benefit-item {
-            display: flex;
-            align-items: flex-start;
             background: var(--light-bg);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
         .benefit-icon {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--primary);
-            margin-right: 30px;
-            flex-shrink: 0;
+            margin-bottom: 20px;
         }
-        .benefit-text h3 {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
+
+        .pricing {
+            background: var(--light-bg);
+            text-align: center;
         }
-        
         .pricing p {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 600;
-            max-width: 800px;
-            margin: 0 auto 50px;
+            max-width: 700px;
+            margin: 0 auto 40px;
         }
-        
+
         .testimonials {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 40px;
             max-width: 1100px;
             margin: 0 auto;
         }
         .testimonial {
-            background: var(--light-bg);
+            background: var(--white);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            font-size: 1.2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
-        .testimonial cite {
-            display: block;
-            margin-top: 24px;
-            font-weight: 600;
-            color: var(--dark-text);
-        }
-        
+
         footer {
             background: #111827;
             color: #9ca3af;
             text-align: center;
-            padding: 50px 0;
+            padding: 60px 0;
         }
-        
+
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .subheadline { font-size: 1.3rem; }
-            h2 { font-size: 2.4rem; }
-            .benefit-item { flex-direction: column; text-align: center; }
-            .benefit-icon { margin-bottom: 20px; }
+            h1 { font-size: 2.6rem; }
+            .subheadline { font-size: 1.25rem; }
         }
     </style>
 </head>
@@ -190,74 +140,38 @@
         <div class="container">
             <img src="https://iili.io/fcAyxwl.png" alt="TimeHunter AI Logo" class="logo">
             
-            <h1>Never Miss Another Client Booking</h1>
-            <p class="subheadline">Get a fully automated booking system that works 24/7 — with instant confirmations, smart reminders, and an optional AI voice assistant that answers calls and schedules appointments for you.</p>
+            <h1>Stop Losing Revenue From Missed Calls and No-Shows</h1>
+            <p class="subheadline">Professional automated booking system + optional AI voice assistant that answers calls and books appointments automatically. So your clients can book themselves 24/7.</p>
             
             <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
-                Book Free Automation Audit (20 min)
+                Book Free 20-Min Automation Audit
             </a>
         </div>
     </header>
 
-    <section class="stats">
-        <div class="container">
-            <h2>Proven Results from Automated Booking Systems</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">35%</div>
-                    <p class="stat-text">Reduction in no-shows with automated reminders & AI assistants</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">60%</div>
-                    <p class="stat-text">Increase in bookings thanks to 24/7 availability</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">27%</div>
-                    <p class="stat-text">Average revenue growth for businesses using online booking</p>
-                </div>
-            </div>
-            <img src="https://berqwp-cdn.sfo3.cdn.digitaloceanspaces.com/cache/www.certifyhealth.com/wp-content/uploads/2025/05/9-Tips-to-Reduce-Patient-No-Shows-Last-Minute-Cancellations-1024x683-jpg.webp?bwp" alt="Graph showing reduction in no-shows" style="max-width:100%; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
-        </div>
-    </section>
-
     <section class="benefits">
         <div class="container">
-            <h2>Your Automated Booking System Includes</h2>
+            <h2>What You Get</h2>
             <div class="benefits-list">
                 <div class="benefit-item">
                     <div class="benefit-icon"><i data-feather="calendar"></i></div>
-                    <div class="benefit-text">
-                        <h3>Professional, Branded Booking Page</h3>
-                        <p>Your clients can book anytime with a clean, custom page that reflects your brand.</p>
-                    </div>
+                    <h3>Professional Booking Page</h3>
+                    <p>Clean, branded page where clients can book available times instantly.</p>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon"><i data-feather="bell"></i></div>
-                    <div class="benefit-text">
-                        <h3>Automatic Confirmations & Reminders</h3>
-                        <p>Email + SMS reminders drastically reduce no-shows and keep your schedule full.</p>
-                    </div>
+                    <h3>Automatic Reminders</h3>
+                    <p>Email + SMS reminders that significantly reduce no-shows.</p>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-icon"><i data-feather="lock"></i></div>
-                    <div class="benefit-text">
-                        <h3>Two-Way Calendar Sync</h3>
-                        <p>Real-time integration prevents double-bookings and conflicts.</p>
-                    </div>
+                    <div class="benefit-icon"><i data-feather="refresh-cw"></i></div>
+                    <h3>Two-Way Calendar Sync</h3>
+                    <p>Real-time sync with your calendar — no more double bookings.</p>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon"><i data-feather="phone"></i></div>
-                    <div class="benefit-text">
-                        <h3>Optional AI Voice Assistant</h3>
-                        <p>Handles inbound calls, answers questions, and books appointments in real-time.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i data-feather="check-circle"></i></div>
-                    <div class="benefit-text">
-                        <h3>One-Time Setup</h3>
-                        <p>No ongoing software fees from us — pay once and own your system.</p>
-                    </div>
+                    <h3>Optional AI Voice Assistant</h3>
+                    <p>Answers inbound calls, qualifies leads, and books appointments automatically.</p>
                 </div>
             </div>
         </div>
@@ -265,29 +179,27 @@
 
     <section class="pricing">
         <div class="container">
-            <h2>Simple, Transparent Pricing</h2>
-            <p>Investments from $2,500–$5,000 depending on scope<br><small>One-time professional setup fee — everything customized for your business</small></p>
+            <h2>Simple & Transparent Pricing</h2>
+            <p>One-time professional setup from $2,500 – $5,000<br>
+            <small>Depending on scope. No ongoing platform fees from us.</small></p>
+            
             <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
-                Book Free Audit to Get Your Custom Quote
+                Book Free Audit & Get Your Custom Quote
             </a>
         </div>
     </section>
 
     <section class="credibility">
         <div class="container">
-            <h2>What Our Clients Say</h2>
+            <h2>What Clients Are Saying</h2>
             <div class="testimonials">
                 <div class="testimonial">
-                    "The AI voice assistant alone books 20+ appointments a month that I would have missed. No-shows are down 40% thanks to the reminders."
+                    "The automated booking system has been a game changer. Clients book themselves and no-shows dropped dramatically."
                     <cite>— Dr. James R., Management Consultant</cite>
                 </div>
                 <div class="testimonial">
-                    "Finally a system that works 24/7. Bookings increased 50% in the first quarter — best investment I've made."
+                    "Finally stopped the endless back-and-forth emails. The voice assistant alone books appointments I would have missed."
                     <cite>— Sarah L., Executive Coach</cite>
-                </div>
-                <div class="testimonial">
-                    "Professional setup, seamless integration. Saved hours every week on scheduling admin."
-                    <cite>— Michael T., Financial Advisor</cite>
                 </div>
             </div>
         </div>
@@ -295,9 +207,9 @@
 
     <section class="cta-final">
         <div class="container">
-            <h2>Ready for 24/7 Automated Bookings?</h2>
-            <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 50px; color: var(--gray-text);">
-                Book a free 20-minute audit call. We'll review your current process and show exactly how much time and revenue you can gain.
+            <h2>Ready to Automate Your Bookings?</h2>
+            <p style="font-size: 1.35rem; max-width: 700px; margin: 0 auto 50px;">
+                Book a free 20-minute audit. We'll review your current process and show you exactly how much time and revenue you can gain.
             </p>
             <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
                 Schedule Your Free Audit Now
@@ -307,14 +219,13 @@
 
     <footer>
         <div class="container">
-            &copy; 2025 TimeHunter AI. All rights reserved.<br>
-            <a href="mailto:hello@timehunter.ai" style="color: #9ca3af; text-decoration: underline;">hello@timehunter.ai</a>
+            © 2026 TimeHunter AI. All rights reserved.<br>
+            <a href="mailto:hello@timehunter.it.com" style="color: #9ca3af;">hello@timehunter.it.com</a>
         </div>
     </footer>
 
     <script>
         feather.replace();
     </script>
-
 </body>
 </html>

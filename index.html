@@ -6,31 +6,34 @@
     <title>TimeHunter AI | Enterprise Automated Booking Systems & AI Voice Agents</title>
     <meta name="description" content="Professional automated booking systems with AI voice assistants. Reduce no-shows, eliminate manual scheduling, accept deposits, and let clients book themselves 24/7.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     
     <style>
         :root {
             --primary: #10b981;
             --primary-dark: #059669;
-            --dark-text: #111827;
+            --primary-light: #d1fae5;
+            --dark-text: #0b1120;
             --gray-text: #4b5563;
-            --light-bg: #f9fafb;
+            --light-bg: #f8fafb;
             --white: #ffffff;
             --accent: #3b82f6;
+            --border: #e5e7eb;
+            --red: #ef4444;
         }
         
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Inter', sans-serif; 
+            font-family: 'DM Sans', sans-serif; 
             line-height: 1.7; 
             color: var(--dark-text); 
-            background: var(--white); 
+            background: var(--white);
+        }
+
+        h1, h2, h3, .nav-logo-text, .step-number, .price-tag {
+            font-family: 'Sora', sans-serif;
         }
         
         .container { 
@@ -39,262 +42,574 @@
             padding: 0 24px; 
         }
 
-        /* Sticky Navigation Header */
+        /* ── Nav ── */
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(254, 254, 254, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid #e5e7eb;
+            top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 16px 0;
+            padding: 14px 0;
         }
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .nav-logo {
-            height: 40px;
+        .nav-logo { height: 38px; }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
         }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary-dark); }
         .nav-cta {
             background: var(--dark-text);
             color: white;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             transition: background 0.2s ease;
+            white-space: nowrap;
         }
-        .nav-cta:hover {
-            background: var(--primary-dark);
-        }
+        .nav-cta:hover { background: var(--primary-dark); }
 
-        /* Hero Header Section */
+        /* ── Hero ── */
         header {
-            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
-            padding: 180px 0 120px;
+            background: linear-gradient(155deg, #f0fdf8 0%, #e0f2fe 55%, #f8fafc 100%);
+            padding: 190px 0 130px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .logo { 
-            width: 220px; 
-            margin-bottom: 32px; 
+        header::before {
+            content: '';
+            position: absolute;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+            top: -150px; right: -150px;
+            pointer-events: none;
+        }
+        .logo { width: 200px; margin-bottom: 28px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+            letter-spacing: 0.03em;
+        }
+        .hero-badge-dot { 
+            width: 8px; height: 8px; 
+            border-radius: 50%; 
+            background: var(--primary); 
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
         }
         h1 { 
-            font-size: 3.6rem; 
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
             margin-bottom: 24px; 
-            line-height: 1.15; 
-            letter-spacing: -0.02em;
-            color: #0f172a;
+            line-height: 1.12; 
+            letter-spacing: -0.03em;
+            color: #0a1628;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
+        h1 em { font-style: normal; color: var(--primary); }
         .subheadline { 
-            font-size: 1.45rem; 
-            max-width: 850px; 
+            font-size: 1.2rem; 
+            max-width: 720px; 
             margin: 0 auto 48px; 
             color: var(--gray-text); 
             font-weight: 400;
+            line-height: 1.75;
         }
-
-        /* Buttons */
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 64px;
+        }
         .cta-button {
             display: inline-block;
             background: var(--primary);
             color: white;
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            padding: 18px 44px;
-            border-radius: 12px;
+            padding: 16px 38px;
+            border-radius: 10px;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(16,185,129,0.25);
+            box-shadow: 0 8px 24px rgba(16,185,129,0.28);
             transition: all 0.2s ease;
+            font-family: 'Sora', sans-serif;
         }
         .cta-button:hover { 
             background: var(--primary-dark); 
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(16,185,129,0.35);
+            box-shadow: 0 12px 32px rgba(16,185,129,0.38);
+        }
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--dark-text);
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            border: 1.5px solid var(--border);
+            transition: all 0.2s ease;
+            font-family: 'Sora', sans-serif;
+        }
+        .cta-secondary:hover { border-color: var(--primary); color: var(--primary-dark); }
+
+        /* Hero Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+            margin-top: 4px;
         }
 
-        section { 
-            padding: 120px 0; 
+        /* ── Trusted Logos ── */
+        .trust-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 28px 0;
+            text-align: center;
         }
+        .trust-bar p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+        .trust-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .trust-logo-item {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #cbd5e1;
+            letter-spacing: -0.02em;
+        }
+
+        /* ── Sections ── */
+        section { padding: 110px 0; }
         h2 { 
-            font-size: 2.6rem; 
+            font-size: clamp(1.9rem, 3.5vw, 2.7rem);
             text-align: center; 
             margin-bottom: 16px; 
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
+            color: #0a1628;
         }
         .section-desc {
             text-align: center;
-            max-width: 700px;
+            max-width: 680px;
             margin: 0 auto 64px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray-text);
+            line-height: 1.8;
+        }
+        .section-tag {
+            display: block;
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 14px;
         }
 
-        /* Problem Section */
+        /* ── Problem Section ── */
         .problem { 
             background: #fff5f5; 
+            border-top: 1px solid #fee2e2;
             border-bottom: 1px solid #fee2e2;
         }
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
         }
         .problem-card {
             background: white;
-            padding: 32px;
-            border-radius: 12px;
-            border-left: 4px solid #ef4444;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            padding: 36px;
+            border-radius: 14px;
+            border-left: 4px solid var(--red);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+        .problem-card .prob-icon {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            display: block;
         }
         .problem-card h3 {
-            margin-bottom: 12px;
-            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+            font-family: 'Sora', sans-serif;
+            color: #b91c1c;
         }
+        .problem-card p { color: var(--gray-text); font-size: 0.97rem; }
 
-        /* Core Features Grid */
+        /* ── Features Grid ── */
+        .features-section { background: var(--white); }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
         }
         .feature-card {
             background: var(--light-bg);
             padding: 40px;
             border-radius: 16px;
-            border: 1px solid #e5e7eb;
-            transition: transform 0.2s ease;
+            border: 1px solid var(--border);
+            transition: all 0.25s ease;
         }
         .feature-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 32px rgba(16,185,129,0.1);
         }
         .feature-icon {
             color: var(--primary);
             margin-bottom: 20px;
-            width: 36px;
-            height: 36px;
+            width: 32px; height: 32px;
         }
         .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-family: 'Sora', sans-serif;
+        }
+        .feature-card p { color: var(--gray-text); font-size: 0.97rem; }
+        .feature-tag {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: 3px 12px;
+            border-radius: 999px;
         }
 
-        /* How It Works Flow */
-        .how-it-works { 
-            background: #f8fafc; 
+        /* ── Booking Experience (new section) ── */
+        .booking-experience { background: #f0fdf8; }
+        .booking-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+            position: relative;
         }
+        .booking-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), #3b82f6);
+            z-index: 0;
+        }
+        .booking-step {
+            text-align: center;
+            padding: 0 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .booking-step-num {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--primary);
+            font-family: 'Sora', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 20px rgba(16,185,129,0.2);
+        }
+        .booking-step h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-family: 'Sora', sans-serif;
+        }
+        .booking-step p { font-size: 0.88rem; color: var(--gray-text); }
+
+        /* ── Channels (new section) ── */
+        .channels-section { background: var(--white); }
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .channel-card {
+            background: var(--light-bg);
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .channel-card:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+        .channel-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+        .channel-card h3 { font-size: 1rem; font-family: 'Sora', sans-serif; margin-bottom: 6px; }
+        .channel-card p { font-size: 0.85rem; color: var(--gray-text); }
+
+        /* ── How It Works ── */
+        .how-it-works { background: #f8fafc; }
         .steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 32px;
+            gap: 28px;
         }
         .step-card {
             background: var(--white);
-            padding: 32px;
-            border-radius: 12px;
+            padding: 36px;
+            border-radius: 14px;
             position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border);
         }
         .step-number {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 800;
             color: #e2e8f0;
             position: absolute;
-            top: 16px;
-            right: 24px;
+            top: 12px;
+            right: 20px;
             line-height: 1;
         }
         .step-card h3 {
-            margin-top: 12px;
-            margin-bottom: 12px;
-            font-size: 1.25rem;
+            margin-top: 8px;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
         }
+        .step-card p { color: var(--gray-text); font-size: 0.95rem; }
 
-        /* Pricing Focus */
-        .pricing { 
-            background: var(--white); 
+        /* ── Industries ── */
+        .industries-section { background: var(--dark-text); color: white; }
+        .industries-section h2 { color: white; }
+        .industries-section .section-desc { color: #94a3b8; }
+        .industries-section .section-tag { color: var(--primary); }
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
         }
+        .industry-pill {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .industry-pill:hover {
+            background: rgba(16,185,129,0.15);
+            border-color: var(--primary);
+        }
+        .industry-icon { font-size: 1.8rem; display: block; margin-bottom: 8px; }
+        .industry-pill span { font-size: 0.9rem; font-weight: 500; color: #cbd5e1; }
+
+        /* ── Pricing ── */
+        .pricing { background: var(--white); }
+        .pricing-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: 950px;
+            margin: 0 auto;
+            align-items: start;
+        }
+        @media (max-width: 720px) { .pricing-wrapper { grid-template-columns: 1fr; } }
         .pricing-card {
             background: var(--light-bg);
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 64px;
-            border-radius: 24px;
-            border: 1px solid #e5e7eb;
+            padding: 52px 48px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.04);
         }
-        .price-tag {
-            font-size: 3rem;
+        .pricing-card.featured {
+            background: var(--dark-text);
+            border-color: transparent;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 18px; right: -28px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.72rem;
             font-weight: 700;
-            color: var(--dark-text);
-            margin: 24px 0 12px;
+            letter-spacing: 0.08em;
+            padding: 5px 40px;
+            transform: rotate(45deg);
         }
+        .pricing-card h3 { font-size: 1.3rem; margin-bottom: 8px; font-family: 'Sora', sans-serif; }
+        .pricing-card.featured h3 { color: white; }
+        .pricing-card .card-desc { font-size: 0.9rem; color: var(--gray-text); margin-bottom: 24px; }
+        .pricing-card.featured .card-desc { color: #94a3b8; }
+        .price-tag {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--dark-text);
+            margin: 16px 0 8px;
+            line-height: 1;
+        }
+        .pricing-card.featured .price-tag { color: white; }
+        .price-period { font-size: 1rem; font-weight: 400; color: var(--gray-text); }
+        .pricing-card.featured .price-period { color: #94a3b8; }
         .pricing-features-list {
             text-align: left;
-            max-width: 450px;
-            margin: 32px auto;
+            margin: 28px 0;
             display: grid;
-            gap: 12px;
+            gap: 10px;
         }
         .pricing-features-list li {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            align-items: flex-start;
+            gap: 10px;
             list-style: none;
+            font-size: 0.92rem;
         }
-        .check-icon {
-            color: var(--primary);
-            flex-shrink: 0;
+        .pricing-card.featured .pricing-features-list li { color: #cbd5e1; }
+        .check-icon { color: var(--primary); flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; }
+        .pricing-note {
+            font-size: 0.82rem;
+            color: var(--gray-text);
+            margin-top: 16px;
         }
+        .pricing-card.featured .pricing-note { color: #64748b; }
 
-        /* Social Proof / Testimonials */
-        .testimonials-section {
-            background: #f8fafc;
-        }
+        /* ── Testimonials ── */
+        .testimonials-section { background: #f8fafc; }
         .testimonials {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
         }
         .testimonial {
             background: var(--white);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            border: 1px solid var(--border);
         }
+        .stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 16px; }
         .testimonial-text {
             font-style: italic;
             margin-bottom: 24px;
             color: var(--gray-text);
+            line-height: 1.75;
         }
-        cite {
-            font-weight: 600;
-            font-style: normal;
-            color: var(--dark-text);
-            display: block;
+        .testimonial-author { display: flex; align-items: center; gap: 14px; }
+        .author-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: 'Sora', sans-serif;
+            flex-shrink: 0;
+        }
+        cite { font-weight: 600; font-style: normal; color: var(--dark-text); display: block; }
+        .cite-role { font-size: 0.83rem; color: var(--gray-text); font-weight: 400; }
+
+        /* ── Results Section ── */
+        .results-section { background: var(--primary); color: white; }
+        .results-section h2 { color: white; }
+        .results-section .section-desc { color: rgba(255,255,255,0.75); }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+        .result-item { text-align: center; }
+        .result-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .result-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.78);
         }
 
-        /* Elegant Accordion FAQ */
-        .faq { 
-            background: var(--white); 
-        }
-        .faq-max {
-            max-width: 850px;
-            margin: 0 auto;
-        }
+        /* ── FAQ ── */
+        .faq { background: var(--white); }
+        .faq-max { max-width: 820px; margin: 0 auto; }
         .faq-item { 
-            margin-bottom: 16px; 
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
+            margin-bottom: 12px; 
+            border: 1px solid var(--border);
+            border-radius: 10px;
             overflow: hidden;
         }
         .faq-question { 
@@ -306,245 +621,718 @@
             align-items: center;
             cursor: pointer;
             user-select: none;
+            font-family: 'Sora', sans-serif;
+            font-size: 0.98rem;
+            transition: background 0.2s;
         }
+        .faq-question:hover { background: var(--primary-light); }
         .faq-answer {
             padding: 24px;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border);
             background: white;
             color: var(--gray-text);
+            line-height: 1.75;
+            font-size: 0.97rem;
         }
 
-        /* Footer */
-        footer {
-            background: #0f172a;
-            color: #94a3b8;
+        /* ── CTA Banner ── */
+        .cta-banner {
+            background: linear-gradient(135deg, #0a1628 0%, #0f2d1f 100%);
+            color: white;
+            padding: 110px 0;
             text-align: center;
-            padding: 80px 0;
-            border-top: 1px solid #1e293b;
         }
-        footer a {
+        .cta-banner h2 { color: white; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta-banner p { color: rgba(255,255,255,0.65); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px; }
+
+        /* ── Footer ── */
+        footer {
+            background: #060e1c;
+            color: #94a3b8;
+            padding: 80px 0 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+        @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+        .footer-brand img { height: 36px; margin-bottom: 16px; }
+        .footer-brand p { font-size: 0.9rem; line-height: 1.75; max-width: 300px; }
+        .footer-col h4 {
+            font-family: 'Sora', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             color: #cbd5e1;
-            text-decoration: none;
+            margin-bottom: 16px;
         }
-        footer a:hover {
-            color: var(--primary);
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover { color: var(--primary); }
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.85rem;
+        }
+        .footer-bottom a { color: #64748b; text-decoration: none; }
+        .footer-bottom a:hover { color: var(--primary); }
+
+        /* ── Responsive nav ── */
+        @media (max-width: 800px) {
+            .nav-links { display: none; }
+            header { padding: 150px 0 100px; }
+            .stats-bar { gap: 24px; }
+            .booking-steps::before { display: none; }
+            .pricing-wrapper { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav>
         <div class="container nav-container">
             <img src="https://iili.io/fcAyxwl.png" alt="TimeHunter AI" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
             <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="nav-cta">
-                Book Free Audit
+                Book Free Audit →
             </a>
         </div>
     </nav>
 
+    <!-- Hero -->
     <header>
         <div class="container">
             <img src="https://iili.io/fcAyxwl.png" alt="TimeHunter AI Logo" class="logo">
-            <h1>Stop Losing Revenue From Missed Calls & No-Shows</h1>
-            <p class="subheadline">We build custom, enterprise-grade booking architectures paired with tailored AI Voice Assistants. Turn missed calls, late-night inquiries, and operational administrative gaps into confirmed revenue 24/7.</p>
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Now Accepting New Clients — Sydney & Australia-Wide
+            </div>
+            <h1>Stop Losing Revenue From <em>Missed Calls & No-Shows</em></h1>
+            <p class="subheadline">We build custom, enterprise-grade booking architectures paired with AI Voice Assistants — turning missed calls, late-night inquiries, and admin gaps into confirmed revenue around the clock, 24/7.</p>
             
-            <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
-                Book Your Free 20-Minute Automation Audit
-            </a>
+            <div class="hero-ctas">
+                <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
+                    Book Your Free Automation Audit
+                </a>
+                <a href="#features" class="cta-secondary">
+                    See All Features ↓
+                </a>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Bookings accepted</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">↓50%</div>
+                    <div class="stat-label">No-show reduction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3–7</div>
+                    <div class="stat-label">Days to deploy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$0</div>
+                    <div class="stat-label">Ongoing markup fees</div>
+                </div>
+            </div>
         </div>
     </header>
 
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <p>Powered by best-in-class platforms</p>
+        <div class="trust-logos">
+            <span class="trust-logo-item">Square</span>
+            <span class="trust-logo-item">Stripe</span>
+            <span class="trust-logo-item">Google Calendar</span>
+            <span class="trust-logo-item">Outlook 365</span>
+            <span class="trust-logo-item">Twilio</span>
+            <span class="trust-logo-item">SimplyBook.me</span>
+            <span class="trust-logo-item">Zapier</span>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
     <section class="problem">
         <div class="container">
-            <h2>The Leaky Bucket in Service Businesses</h2>
-            <p class="section-desc">Manual workflows, fragmented calendars, and unreturned phone tags are structural growth bottlenecks costing thousands in lost client lifetime value.</p>
+            <span class="section-tag">The Problem</span>
+            <h2>The Hidden Revenue Leak in Service Businesses</h2>
+            <p class="section-desc">Manual workflows, fragmented calendars, and unreturned calls are structural growth bottlenecks costing thousands in lost client lifetime value — every single week.</p>
             
             <div class="problem-grid">
                 <div class="problem-card">
+                    <span class="prob-icon">📵</span>
                     <h3>The Inbound Silence</h3>
-                    <p>62% of inbound calls to small-to-medium businesses go completely unanswered. If they reach voicemail, they usually hang up and call a competitor.</p>
+                    <p>62% of inbound calls to small-to-medium businesses go completely unanswered. If they reach voicemail, they usually hang up and call a competitor within 60 seconds.</p>
                 </div>
                 <div class="problem-card">
-                    <h3>The Chasing Game</h3>
-                    <p>Spending hours emailing or texting back-and-forth trying to align standard business hours with a prospect's personal schedule.</p>
+                    <span class="prob-icon">📧</span>
+                    <h3>The Endless Back-and-Forth</h3>
+                    <p>Hours wasted emailing or texting to find a meeting time that works. Every back-and-forth message is a conversion opportunity slipping away, eroding your professional image.</p>
                 </div>
                 <div class="problem-card">
+                    <span class="prob-icon">🪑</span>
                     <h3>The No-Show Cost</h3>
-                    <p>Empty appointment slots represent lost operating margin that cannot be recovered. Without dynamic reminders, modern no-show rates hover near 20%.</p>
+                    <p>Empty appointment slots represent lost margin that can never be recovered. Without dynamic reminders, industry no-show rates hover near 20% — that's 1 in 5 sessions written off.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="prob-icon">🌙</span>
+                    <h3>Closed After Hours</h3>
+                    <p>Your best leads are browsing at 10pm. Without 24/7 booking capability, those clients book a competitor who is open online — you wake up to missed revenue, not confirmations.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="prob-icon">💸</span>
+                    <h3>Unpaid Ghost Clients</h3>
+                    <p>Bookings with no deposit commitment attract unqualified leads. Window shoppers clog your calendar, blocking paying clients and causing last-minute cancellations with zero accountability.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="prob-icon">📋</span>
+                    <h3>Admin Overload</h3>
+                    <p>Time spent on manual scheduling, follow-up emails, and rescheduling is time stolen from billable work. Automation eliminates this overhead entirely, reclaiming 8–15 hours weekly.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
+    <!-- Core Features -->
+    <section class="features-section" id="features">
         <div class="container">
-            <h2>Fully Custom Enterprise Capabilities</h2>
-            <p class="section-desc">We design, configure, and engineer your operations into an automated, booking-optimised platform utilizing best-in-class components.</p>
+            <span class="section-tag">What We Build</span>
+            <h2>Fully Custom Enterprise Booking Capabilities</h2>
+            <p class="section-desc">We design, configure, and engineer your operations into an automated, booking-optimised platform using best-in-class components — no templates, no compromises.</p>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <i data-feather="calendar" class="feature-icon"></i>
                     <h3>Bespoke Booking Flow</h3>
-                    <p>A beautifully branded, frictionless scheduling web layout native to your identity. Allow clients to effortlessly select services, staff, and multi-location sessions instantly.</p>
+                    <p>A beautifully branded, frictionless scheduling page native to your identity. Clients effortlessly pick services, choose their preferred staff member, select a location, and lock in a time — all in under 60 seconds from any device.</p>
+                    <span class="feature-tag">Mobile Optimised</span>
                 </div>
                 <div class="feature-card">
                     <i data-feather="mic" class="feature-icon"></i>
-                    <h3>Autonomous Voice Triage</h3>
-                    <p>An optional, hyper-realistic conversational AI Voice Assistant that picks up phone calls, answers granular FAQs, screens leads via qualifying variables, and pushes live slots straight into your system.</p>
+                    <h3>AI Voice Triage Assistant</h3>
+                    <p>A hyper-realistic conversational AI that answers your phone, fields granular FAQs using your own business knowledge base, qualifies inbound leads, and books appointments live into your calendar — without a human lifting a finger.</p>
+                    <span class="feature-tag">Optional Add-On</span>
                 </div>
                 <div class="feature-card">
                     <i data-feather="credit-card" class="feature-icon"></i>
                     <h3>Upfront Payments & Deposits</h3>
-                    <p>Protect your calendar by enforcing partial or full credit card deposits securely at booking. Drastically filters window shoppers and secures predictable cash flow.</p>
+                    <p>Protect your calendar with mandatory credit card holds or fixed deposits at the moment of booking. Filters ghost clients on contact, secures predictable cash flow, and dramatically reduces last-minute cancellations.</p>
+                    <span class="feature-tag">Square + Stripe</span>
                 </div>
                 <div class="feature-card">
                     <i data-feather="refresh-cw" class="feature-icon"></i>
                     <h3>Real-Time Two-Way Sync</h3>
-                    <p>Deep native integration with Google Calendar, Outlook, and CRM systems. Zero double-booking vulnerability; internal blockouts update your public availability within milliseconds.</p>
+                    <p>Deep native integration with Google Calendar, Outlook 365, Apple Calendar, and CRM systems. Zero double-booking risk — internal blockouts sync to your public booking page in milliseconds. Works across multiple staff and locations.</p>
+                    <span class="feature-tag">Zero Double-Booking</span>
                 </div>
                 <div class="feature-card">
                     <i data-feather="message-square" class="feature-icon"></i>
-                    <h3>Intelligent Multi-Channel Reminders</h3>
-                    <p>Configurable SMS and Email sequences structured around high-probability time frames to ensure maximum attendance, complete with smart rescheduling links.</p>
+                    <h3>Multi-Channel Reminder Engine</h3>
+                    <p>Configurable SMS, Email, and WhatsApp sequences engineered around high-conversion timing windows. Smart rescheduling links included — clients can move their own appointments in one tap, eliminating inbound support calls.</p>
+                    <span class="feature-tag">SMS + Email + WhatsApp</span>
                 </div>
                 <div class="feature-card">
                     <i data-feather="users" class="feature-icon"></i>
-                    <h3>Roster & Staff Resource Routing</h3>
-                    <p>Scale your operation seamlessly. Dynamically route bookings based on specific staff specialties, alternating shifts, real-time availability, or round-robin distribution rules.</p>
+                    <h3>Roster & Staff Routing</h3>
+                    <p>Dynamically route bookings based on staff specialties, real-time availability, or round-robin distribution. Allow clients to self-select a team member or let your system optimise allocation automatically to maximise throughput.</p>
+                    <span class="feature-tag">Multi-Staff Support</span>
+                </div>
+                <div class="feature-card">
+                    <i data-feather="globe" class="feature-icon"></i>
+                    <h3>Custom Branded Booking Page</h3>
+                    <p>A professionally styled, standalone booking site — or a widget that embeds seamlessly into your existing website. Full custom colour themes, business logo, service photography, and brand copy integration included.</p>
+                    <span class="feature-tag">White-Label Ready</span>
+                </div>
+                <div class="feature-card">
+                    <i data-feather="bar-chart-2" class="feature-icon"></i>
+                    <h3>Analytics & Revenue Dashboard</h3>
+                    <p>Track bookings, cancellation rates, no-show metrics, revenue per slot, staff performance, and peak demand windows from a clean admin dashboard. Export reports or integrate into your existing BI tools via API.</p>
+                    <span class="feature-tag">Real-Time Reporting</span>
+                </div>
+                <div class="feature-card">
+                    <i data-feather="shield" class="feature-icon"></i>
+                    <h3>Booking Policy Enforcement</h3>
+                    <p>Set granular rules for how far in advance clients can book, required notice periods, cancellation windows with penalty enforcement, waitlist management, and buffer time between consecutive appointments.</p>
+                    <span class="feature-tag">Full Policy Control</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="how-it-works">
+    <!-- Client Booking Experience -->
+    <section class="booking-experience">
         <div class="container">
+            <span class="section-tag">The Client Experience</span>
+            <h2>Booking Made Effortless for Your Clients</h2>
+            <p class="section-desc">Your clients get a world-class, mobile-friendly booking experience that feels premium — increasing conversion and building trust before they even walk through your door.</p>
+
+            <div class="booking-steps">
+                <div class="booking-step">
+                    <div class="booking-step-num">1</div>
+                    <h3>Select a Service</h3>
+                    <p>Browse your full service menu with descriptions, durations, and pricing — all clearly displayed.</p>
+                </div>
+                <div class="booking-step">
+                    <div class="booking-step-num">2</div>
+                    <h3>Choose Staff & Time</h3>
+                    <p>Pick a preferred team member or let the system auto-assign, then choose a time from live availability.</p>
+                </div>
+                <div class="booking-step">
+                    <div class="booking-step-num">3</div>
+                    <h3>Pay & Confirm</h3>
+                    <p>Securely complete any required deposit via card — booking is instantly locked in with confirmation.</p>
+                </div>
+                <div class="booking-step">
+                    <div class="booking-step-num">4</div>
+                    <h3>Automated Reminders</h3>
+                    <p>Clients receive SMS and email reminders at optimal intervals to ensure they show up, on time.</p>
+                </div>
+                <div class="booking-step">
+                    <div class="booking-step-num">5</div>
+                    <h3>Show Up & Review</h3>
+                    <p>Post-appointment follow-ups, loyalty prompts, and rebooking nudges are sent automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Channels -->
+    <section class="channels-section">
+        <div class="container">
+            <span class="section-tag">Where Clients Can Book</span>
+            <h2>Accept Bookings From Every Channel</h2>
+            <p class="section-desc">Meet your clients wherever they are. Your booking system works across every platform your clients use — web, mobile, social, and voice.</p>
+
+            <div class="channels-grid">
+                <div class="channel-card">
+                    <span class="channel-icon">🌐</span>
+                    <h3>Your Website</h3>
+                    <p>Embedded widget or standalone booking page — fully branded to match your site.</p>
+                </div>
+                <div class="channel-card">
+                    <span class="channel-icon">📱</span>
+                    <h3>Mobile</h3>
+                    <p>Fully responsive on every smartphone. Clients book on the go without friction.</p>
+                </div>
+                <div class="channel-card">
+                    <span class="channel-icon">📞</span>
+                    <h3>Phone (AI Agent)</h3>
+                    <p>AI Voice Agent answers calls and schedules directly into your calendar.</p>
+                </div>
+                <div class="channel-card">
+                    <span class="channel-icon">💼</span>
+                    <h3>Google Business</h3>
+                    <p>Book button integration directly on your Google listing for instant conversion.</p>
+                </div>
+                <div class="channel-card">
+                    <span class="channel-icon">📲</span>
+                    <h3>Instagram & Facebook</h3>
+                    <p>Book Now action button linked to your booking flow from your social profiles.</p>
+                </div>
+                <div class="channel-card">
+                    <span class="channel-icon">📩</span>
+                    <h3>Email & SMS Links</h3>
+                    <p>One-click booking links embedded in email signatures, newsletters, and campaigns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <span class="section-tag">Our Process</span>
             <h2>The Implementation Roadmap</h2>
-            <p class="section-desc">You focus on managing your business operations. Our specialists look after the technical strategy from deployment to optimization.</p>
+            <p class="section-desc">You focus on running your business. Our specialists handle the complete technical architecture — from first discovery call to ongoing optimisation.</p>
             
             <div class="steps">
                 <div class="step-card">
                     <span class="step-number">01</span>
-                    <h3>Discovery & Auditing</h3>
-                    <p>We break down your current scheduling mechanics, service structures, staff rosters, and client intake parameters during an alignment session.</p>
+                    <h3>Discovery & Audit</h3>
+                    <p>We map your current scheduling workflows, service structures, staff rosters, and client intake process — identifying exactly where revenue is leaking and where automation creates the most leverage.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-number">02</span>
-                    <h3>Turnkey Technical Setup</h3>
-                    <p>Our team builds the complete technical architecture—configuring custom booking policies, payment rails, calendar handshakes, and testing the system metrics.</p>
+                    <h3>Turnkey Technical Build</h3>
+                    <p>Our team engineers the full stack — custom booking policies, payment gateway configuration, calendar integrations, staff routing rules, and branded UI — then tests every workflow before launch.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-number">03</span>
                     <h3>AI Agent Integration</h3>
-                    <p>We feed the conversational system your precise business parameters, brand voice tones, and scheduling logic to deploy your responsive voice layer.</p>
+                    <p>We train your conversational AI on your business knowledge, brand voice, service catalogue, FAQs, and scheduling logic — then deploy and test it across your live phone line.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-number">04</span>
-                    <h3>Handoff & Launch</h3>
-                    <p>Receive comprehensive onboarding, a clean administrative dashboard to track analytical progress, and continuous baseline platform optimizations.</p>
+                    <h3>Launch & Handoff</h3>
+                    <p>Full team training, a clean admin dashboard to monitor live bookings and analytics, and documented playbooks for every scenario — plus ongoing platform optimisations as your business scales.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pricing">
+    <!-- Industries -->
+    <section class="industries-section" id="industries">
         <div class="container">
-            <div class="pricing-card">
-                <h2>Simple, Transparent Pricing</h2>
-                <p>Premium automation engineering built specifically for service-driven enterprises.</p>
-                <div class="price-tag">From $2,997 <span style="font-size: 1.2rem; font-weight: 400; color: var(--gray-text);">one-time setup</span></div>
-                
-                <ul class="pricing-features-list">
-                    <li><i data-feather="check" class="check-icon"></i> Complete Bespoke Booking Page Build & Styling</li>
-                    <li><i data-feather="check" class="check-icon"></i> Native Two-Way Live Calendar Synchronization</li>
-                    <li><i data-feather="check" class="check-icon"></i> Automated SMS & Email Engagement Funnels</li>
-                    <li><i data-feather="check" class="check-icon"></i> Upfront Payment Gateways & Booking Security</li>
-                    <li><i data-feather="check" class="check-icon"></i> Optional Live AI Voice Assistant Integration</li>
-                    <li><i data-feather="check" class="check-icon"></i> Post-Deployment Team Training & System Documentation</li>
-                </ul>
+            <span class="section-tag">Who We Serve</span>
+            <h2>Built for Any Service-Based Business</h2>
+            <p class="section-desc">Whether you're a solo practitioner or a multi-location enterprise, our custom booking systems scale to fit your operation precisely.</p>
 
-                <p style="margin-bottom: 24px; font-size: 0.9rem; color: var(--gray-text);">No ongoing subscription platform markup from us. Only pay your provider's standard processing fees.</p>
-                
-                <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button">
-                    Book Free Audit & Get Your Custom Quote
-                </a>
+            <div class="industries-grid">
+                <div class="industry-pill">
+                    <span class="industry-icon">⚖️</span>
+                    <span>Legal & Law</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">🏥</span>
+                    <span>Healthcare & Allied Health</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">🧠</span>
+                    <span>Coaching & Consulting</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">💆</span>
+                    <span>Beauty & Wellness</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">🏋️</span>
+                    <span>Fitness & Personal Training</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">📸</span>
+                    <span>Photography & Creative</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">🏠</span>
+                    <span>Real Estate & Property</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">🔧</span>
+                    <span>Trades & Home Services</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">🎓</span>
+                    <span>Education & Tutoring</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">🐾</span>
+                    <span>Veterinary & Pet Care</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">🚗</span>
+                    <span>Automotive Services</span>
+                </div>
+                <div class="industry-pill">
+                    <span class="industry-icon">📊</span>
+                    <span>Accounting & Finance</span>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Results -->
+    <section class="results-section">
+        <div class="container">
+            <span class="section-tag" style="color: rgba(255,255,255,0.6); display: block; text-align: center; margin-bottom: 14px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">Real Client Outcomes</span>
+            <h2>Numbers That Matter to Your Bottom Line</h2>
+            <p class="section-desc">Average results reported by clients within 60 days of deployment.</p>
+            
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">↓ 50%</div>
+                    <div class="result-label">Reduction in no-shows within 30 days</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">↑ 35%</div>
+                    <div class="result-label">Increase in bookings from after-hours traffic</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">12 hrs</div>
+                    <div class="result-label">Average weekly admin hours reclaimed</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">3–7</div>
+                    <div class="result-label">Business days from audit to live system</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <span class="section-tag">Pricing</span>
+            <h2>Simple, Transparent Pricing</h2>
+            <p class="section-desc">Premium automation engineering purpose-built for service businesses. No ongoing subscription markup from us — ever.</p>
+
+            <div class="pricing-wrapper">
+                <div class="pricing-card">
+                    <h3>Booking System Setup</h3>
+                    <p class="card-desc">Complete custom booking infrastructure for growing businesses.</p>
+                    <div class="price-tag">From $1,997 <span class="price-period">one-time</span></div>
+                    <ul class="pricing-features-list">
+                        <li><i data-feather="check" class="check-icon"></i> Custom branded booking page build</li>
+                        <li><i data-feather="check" class="check-icon"></i> Google / Outlook calendar integration</li>
+                        <li><i data-feather="check" class="check-icon"></i> SMS + Email reminder sequences</li>
+                        <li><i data-feather="check" class="check-icon"></i> Booking policy & cancellation rules</li>
+                        <li><i data-feather="check" class="check-icon"></i> Staff routing configuration</li>
+                        <li><i data-feather="check" class="check-icon"></i> Team training & documentation</li>
+                    </ul>
+                    <p class="pricing-note">Only pay standard provider processing fees — no markup from us.</p>
+                    <br>
+                    <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button" style="display:block; font-size: 0.95rem; padding: 14px 28px;">
+                        Book Free Audit
+                    </a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Booking + AI Voice Agent</h3>
+                    <p class="card-desc">Everything in Booking Setup, plus a fully trained AI voice layer.</p>
+                    <div class="price-tag">From $2,997 <span class="price-period">one-time</span></div>
+                    <ul class="pricing-features-list">
+                        <li><i data-feather="check" class="check-icon"></i> Everything in Booking System Setup</li>
+                        <li><i data-feather="check" class="check-icon"></i> AI Voice Agent — trained on your business</li>
+                        <li><i data-feather="check" class="check-icon"></i> Live phone line integration & testing</li>
+                        <li><i data-feather="check" class="check-icon"></i> FAQ knowledge base configuration</li>
+                        <li><i data-feather="check" class="check-icon"></i> Lead qualification & screening logic</li>
+                        <li><i data-feather="check" class="check-icon"></i> Payment gateway & deposit enforcement</li>
+                        <li><i data-feather="check" class="check-icon"></i> WhatsApp notification setup</li>
+                        <li><i data-feather="check" class="check-icon"></i> Post-launch optimisation session</li>
+                    </ul>
+                    <p class="pricing-note">Standard call platform fees apply. No recurring markup from our side.</p>
+                    <br>
+                    <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button" style="display:block; font-size: 0.95rem; padding: 14px 28px;">
+                        Book Free Audit & Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
     <section class="testimonials-section">
         <div class="container">
+            <span class="section-tag">Client Stories</span>
             <h2>Trusted by Leaders to Drive Growth</h2>
-            <p class="section-desc">See how modern consultants and coaches have engineered administration work right out of their companies.</p>
+            <p class="section-desc">See how consultants, coaches, and practitioners have engineered admin work entirely out of their business.</p>
             
             <div class="testimonials">
                 <div class="testimonial">
-                    <p class="testimonial-text">"Deploying this automated system fundamentally recalibrated our morning routines. Our overall no-shows dropped by almost 50% in the first thirty days alone."</p>
-                    <cite>— Dr. James R., Management Consultant</cite>
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Deploying this automated system fundamentally changed our operations. Our no-shows dropped by almost 50% within the first month — and we haven't touched the booking calendar manually since."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JR</div>
+                        <div>
+                            <cite>Dr. James R.</cite>
+                            <span class="cite-role">Management Consultant, Sydney</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="testimonial">
-                    <p class="testimonial-text">"The hours spent tracking down confirmation emails have fully disappeared. The conversational voice asset alone books incoming prospects smoothly while I'm deep in client sessions."</p>
-                    <cite>— Sarah L., Executive Coach</cite>
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"The hours I used to spend chasing confirmations have completely disappeared. The AI Voice Agent books prospects while I'm in client sessions. I wake up to a full calendar — no effort on my part."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SL</div>
+                        <div>
+                            <cite>Sarah L.</cite>
+                            <span class="cite-role">Executive Coach, Melbourne</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"The deposit requirement alone eliminated our ghost-client problem overnight. Revenue is more predictable, our team isn't scrambling, and clients actually show up prepared. Couldn't recommend more."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MP</div>
+                        <div>
+                            <cite>Michael P.</cite>
+                            <span class="cite-role">Allied Health Practice Owner, Brisbane</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq">
+    <!-- FAQ -->
+    <section class="faq" id="faq">
         <div class="container faq-max">
+            <span class="section-tag">FAQ</span>
             <h2>Frequently Asked Questions</h2>
-            <p class="section-desc" style="margin-bottom: 40px;">Everything you need to know about our technical implementation capabilities.</p>
+            <p class="section-desc" style="margin-bottom: 48px;">Everything you need to know about our implementation process and what to expect.</p>
             
             <div class="faq-item">
-                <div class="faq-question">How long does the deployment phase take? <i data-feather="chevron-down"></i></div>
-                <div class="faq-answer">Most standard custom infrastructure builds are completely engineered and launched within 3–7 business days. We handle every step—from calendar routing to messaging parameters.</div>
+                <div class="faq-question">How long does deployment take? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">Most standard builds are completely live within 3–7 business days. Complex multi-location or enterprise setups with full AI Voice Agent integration may take up to 14 days. We handle every step — from calendar configuration to payment gateway testing — so you don't need to manage anything technical.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">Do I need to migrate or change my current calendar? <i data-feather="chevron-down"></i></div>
-                <div class="faq-answer">No. We sync directly into your existing Google Calendar, Outlook, or corporate system in real-time. Your personal time slots and current schedules are fully read, respected, and protected.</div>
+                <div class="faq-question">Do I need to change my existing calendar or software? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">No. We integrate directly with your existing Google Calendar, Outlook 365, or Apple Calendar in real time via two-way sync. Your current schedule, personal blocks, and internal events are fully read and respected — nothing changes on your end. If you use a CRM, we can typically integrate that too.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">What exactly is the AI Voice Assistant layer? <i data-feather="chevron-down"></i></div>
-                <div class="faq-answer">It is an optional, high-fidelity conversational agent connected to local phone lines. It picks up incoming queries, fields customer questions from your company playbook, qualifies caller intent, and sets appointments directly into available slots.</div>
+                <div class="faq-question">What exactly does the AI Voice Assistant do? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">Your AI Voice Agent answers inbound calls in your business name using a natural, conversational voice. It answers questions drawn from your business knowledge base (services, pricing, location, policies), qualifies callers based on your criteria, and books or reschedules appointments directly into your live calendar. It can also handle after-hours calls, reducing missed opportunities to zero.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">Can we enforce upfront deposits to block out fake leads? <i data-feather="chevron-down"></i></div>
-                <div class="faq-answer">Yes, absolutely. We can integrate payment rails (like Square or Stripe) natively into your custom booking flow so clients must commit via authorization hold or fixed deposit to confirm a premium spot.</div>
+                <div class="faq-question">Can we require deposits to filter unqualified leads? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">Absolutely. We integrate payment gateways (Square or Stripe) directly into your booking flow so clients must commit via a credit card hold or fixed deposit to confirm a slot. You control the deposit amount, refund policies, and cancellation penalty rules. This is one of the most powerful tools for reducing no-shows and ghost bookings.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">What happens if a client tries booking late at night or on holidays? <i data-feather="chevron-down"></i></div>
-                <div class="faq-answer">The engine relies strictly on your predefined availability rule blocks. Clients and AI assistants can only execute a booking on hours you explicitly open for business.</div>
+                <div class="faq-question">What booking channels will my clients be able to use? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">Your system can accept bookings via your website (embedded widget or standalone booking page), mobile, direct SMS or email links, Google Business profile integration, and Instagram or Facebook social profiles — plus phone via the AI Voice Agent. We configure whichever channels make sense for your business model and target audience.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Are there any hidden recurring fees? <i data-feather="chevron-down"></i></div>
-                <div class="faq-answer">None from our side. Our pricing is a one-off technical delivery and optimization fee. You only interact directly with standard provider merchant processing rates if you choose to accept online credit cards.</div>
+                <div class="faq-question">Can clients reschedule or cancel themselves? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">Yes. Every confirmation and reminder message includes a smart rescheduling link that allows clients to move their own appointment within the rules you set — for instance, no changes within 24 hours of the booking. This eliminates a significant volume of inbound support calls and keeps your team free to focus on billable work.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What happens if a client tries to book outside my business hours? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">Your system only exposes time slots you explicitly mark as available. Clients — and the AI Agent — can only book within your defined availability rules. You control buffer time between appointments, days off, lunch blocks, and how far in advance clients can schedule, down to the hour.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Are there any hidden recurring fees from TimeHunter AI? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">None from us. Our pricing is a one-off technical delivery and optimisation fee. You pay only the standard rates from the underlying platforms you use — such as Square or Stripe merchant processing fees, or Twilio call rates for the Voice Agent. We don't mark up these costs or charge ongoing retainers.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can the system handle multiple staff and multiple locations? <i data-feather="chevron-down"></i></div>
+                <div class="faq-answer">Yes. We build multi-staff routing logic so bookings are allocated based on each team member's real-time availability, specialty, or on a round-robin basis. Multi-location setups are fully supported — clients can select a specific location, and availability is managed independently per venue, all within a single admin dashboard.</div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Ready to Reclaim Your Time and Fill Your Calendar?</h2>
+            <p>Book a free 20-minute audit. We'll review your current booking process, identify the exact gaps costing you clients, and map out your custom automation build — no obligation.</p>
+            <a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank" class="cta-button" style="font-size: 1.1rem; padding: 18px 44px;">
+                Book Your Free Audit Today →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p style="margin-bottom: 16px;">© 2026 TimeHunter AI. Helping service businesses reclaim their time and capture every client.</p>
-            <a href="mailto:hello@timehunter.it.com">hello@timehunter.it.com</a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="https://iili.io/fcAyxwl.png" alt="TimeHunter AI">
+                    <p>Helping service businesses across Australia reclaim their time, eliminate admin, and capture every client opportunity — 24 hours a day.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#features">Booking System Build</a></li>
+                        <li><a href="#features">AI Voice Agent</a></li>
+                        <li><a href="#features">Calendar Integration</a></li>
+                        <li><a href="#features">Payment Setup</a></li>
+                        <li><a href="#features">Reminder Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="mailto:hello@timehunter.it.com">Contact Us</a></li>
+                        <li><a href="https://book.squareup.com/appointments/04crk90svjktk6/location/L197YJCSXPZDX/services" target="_blank">Book an Audit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 TimeHunter AI. All rights reserved.</p>
+                <a href="mailto:hello@timehunter.it.com">hello@timehunter.it.com</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Initialize feather icon library replacement
         feather.replace();
 
-        // Simple interactive accordion functionality for the FAQ section
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(questionBlock => {
-            // Hide answers by default dynamically for robust clean state
             const answer = questionBlock.nextElementSibling;
             answer.style.display = 'none';
 
             questionBlock.addEventListener('click', () => {
                 const isCurrentlyOpen = answer.style.display === 'block';
-                
-                // Close all other open items first to maintain clean accordion structure
                 document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+                document.querySelectorAll('.faq-question svg').forEach(svg => svg.style.transform = 'rotate(0deg)');
+
+                if (!isCurrentlyOpen) {
+                    answer.style.display = 'block';
+                    questionBlock.querySelector('svg').style.transform = 'rotate(180deg)';
+                    questionBlock.querySelector('svg').style.transition = 'transform 0.25s ease';
+                }
+            });
+        });
+
+        // Scroll-triggered fade-in for sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.feature-card, .step-card, .testimonial, .problem-card, .channel-card, .industry-pill, .result-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
